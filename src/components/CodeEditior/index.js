@@ -16,7 +16,12 @@ const CodeEditior = ({
         value={htmlValue}
         setValue={setHtmlValue}
       />
-      <Editior mode="css" label="CSS" value={cssValue} setValue={setCssValue} />
+      <Editior
+        mode="sass"
+        label="CSS"
+        value={cssValue}
+        setValue={setCssValue}
+      />
       <Editior
         mode="javascript"
         label="JS"

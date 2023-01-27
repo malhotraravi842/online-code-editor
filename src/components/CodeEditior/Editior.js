@@ -5,7 +5,6 @@ import "codemirror/mode/htmlmixed/htmlmixed";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 import { useState } from "react";
-// require("codemirror/mode/javascript/javascript");
 
 const Editor = ({ mode, label, value, setValue }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -13,10 +12,11 @@ const Editor = ({ mode, label, value, setValue }) => {
     mode: mode,
     theme: "material",
     lineNumbers: true,
+    lineWrapping: true,
+    autofocus: true,
   };
 
   const onCollapse = () => {
-    console.log("collapsed");
     setIsCollapsed(!isCollapsed);
   };
 

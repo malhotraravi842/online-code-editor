@@ -3,21 +3,23 @@ import CodeEditior from "../components/CodeEditior";
 import WebView from "../components/WebView";
 
 const Dashboard = () => {
-  const [htmlValue, setHtmlValue] = useState("<h1>Hello Ravi Chaudhary</h1>");
-  const [cssValue, setCssValue] = useState("h1{color: red}");
-  const [jsValue, setJsValue] = useState("console.log('Hello Ravi');");
+  const [htmlValue, setHtmlValue] = useState("");
+  const [cssValue, setCssValue] = useState("");
+  const [jsValue, setJsValue] = useState("");
   const [srcDoc, setSrcDoc] = useState("");
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setSrcDoc(`
         <html>
-          <body>${htmlValue}</body>
+          <body>
           <style>${cssValue}</style>
+          ${htmlValue}
           <script>${jsValue}</script>
+          </body>
         </html>
     `);
-    }, 250);
+    }, 2000);
 
     return () => clearTimeout(timeout);
   }, [htmlValue, cssValue, jsValue]);

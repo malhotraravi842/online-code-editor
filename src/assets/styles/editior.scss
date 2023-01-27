@@ -18,7 +18,7 @@
 }
 .editor__navbar {
   height: 32px;
-  background-color: black;
+  background-color: #6c757d;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -41,5 +41,5 @@
   }
 }
 .editor .CodeMirror {
-  border-radius: 6px;
+  border-radius: 0 0 6px 6px;
 }
