@@ -1,0 +1,45 @@
+.editor {
+  border: solid transparent;
+  border-width: 0px 5px;
+  width: 100%;
+  border-radius: 6px;
+
+  &:first-child {
+    border-left-width: 10px;
+  }
+
+  &:last-child {
+    border-right-width: 10px;
+  }
+
+  &.editor--collapsed {
+    width: 100px;
+  }
+}
+.editor__navbar {
+  height: 32px;
+  background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 0 12px;
+  border-radius: 6px 6px 0 0;
+}
+.editor__navbar__btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #fff;
+  // padding: auto 10px;
+  border-radius: 5px;
+
+  &:active,
+  &:hover {
+    border: 1px solid #fff;
+  }
+}
+.editor .CodeMirror {
+  border-radius: 6px;
+}
