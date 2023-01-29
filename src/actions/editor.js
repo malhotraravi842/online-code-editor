@@ -22,3 +22,9 @@ export const setHtmlValue = (value) => ({
 export const refreshEditors = () => ({
   type: reduxConstants.REFRESH_EDITORS_VALUE,
 });
+
+// Action to change the layout of editor
+export const changeLayout = (value) => ({
+  type: reduxConstants.CHANGE_EDITOR_LAYOUT,
+  payload: value,
+});

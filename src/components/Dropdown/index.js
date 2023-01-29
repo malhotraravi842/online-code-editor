@@ -70,8 +70,8 @@ const Dropdown = ({ btnProps, options, setOption }) => {
       {showOptions && (
         <Options>
           {options.map((item, i) => (
-            <Option key={i} onClick={() => chooseOption(item)}>
-              {item}
+            <Option key={i} onClick={() => chooseOption(item.value)}>
+              {item.label}
             </Option>
           ))}
         </Options>

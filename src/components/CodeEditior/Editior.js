@@ -5,8 +5,10 @@ import "codemirror/mode/htmlmixed/htmlmixed";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 import { useState } from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
 
-const Editor = ({ mode, label, value, setValue }) => {
+const Editor = ({ mode, label, value, setValue, layout }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const options = {
     mode: mode,
@@ -21,7 +23,9 @@ const Editor = ({ mode, label, value, setValue }) => {
   };
 
   return (
-    <div className={`editor ${isCollapsed ? "editor--collapsed" : ""}`}>
+    <div
+      className={`editor ${isCollapsed ? "editor--collapsed" : ""} ${layout}`}
+    >
       <div className="editor__navbar">
         <div>{label}</div>
         <button
@@ -46,4 +50,8 @@ const Editor = ({ mode, label, value, setValue }) => {
   );
 };
 
-export default Editor;
+const mapStateToProps = (state) => ({
+  layout: state.editor.layout,
+});
+
+export default compose(connect(mapStateToProps))(Editor);

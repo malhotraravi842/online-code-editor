@@ -1,15 +1,30 @@
 .editor {
-  border: solid transparent;
-  border-width: 0px 5px;
   width: 100%;
   border-radius: 6px;
+  padding: 0 5px;
+
+  &.layout2,
+  &.layout3 {
+    padding: 0;
+    height: 33.33%;
+    border-radius: 0;
+  }
 
   &:first-child {
-    border-left-width: 10px;
+    padding-left: 10px;
+
+    &.layout2,
+    &.layout3 {
+      padding: 0;
+    }
   }
 
   &:last-child {
-    border-right-width: 10px;
+    padding-right: 10px;
+    &.layout2,
+    &.layout3 {
+      padding: 0;
+    }
   }
 
   &.editor--collapsed {
@@ -27,6 +42,12 @@
   padding: 0 12px;
   border-radius: 6px 6px 0 0;
 }
+.layout2,
+.layout3 {
+  .editor__navbar {
+    border-radius: 0;
+  }
+}
 .editor__navbar__btn {
   border: none;
   outline: none;
@@ -40,6 +61,20 @@
     border: 1px solid #fff;
   }
 }
-.editor .CodeMirror {
-  border-radius: 0 0 6px 6px;
+.editor {
+  .react-codemirror2 {
+    height: calc(100% - 32px);
+  }
+
+  .CodeMirror {
+    border-radius: 0 0 6px 6px;
+    height: 100%;
+  }
+
+  &.layout2,
+  &.layout3 {
+    .CodeMirror {
+      border-radius: 0;
+    }
+  }
 }

@@ -10,9 +10,10 @@ const CodeEditior = ({
   setHtmlValue,
   setCssValue,
   setJsValue,
+  layout,
 }) => {
   return (
-    <div className="code-editiors">
+    <div className={`code-editiors ${layout}`}>
       <Editior
         mode="htmlmixed"
         label="HTML"
@@ -39,6 +40,7 @@ const mapStateToProps = (state) => ({
   jsValue: state.editor.jsValue,
   cssValue: state.editor.cssValue,
   htmlValue: state.editor.htmlValue,
+  layout: state.editor.layout,
 });
 
 const mapDispatchToProps = (dispatch) => ({

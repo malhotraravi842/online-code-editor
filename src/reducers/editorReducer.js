@@ -4,9 +4,16 @@ const initialStateSchema = {
   jsValue: "",
   cssValue: "",
   htmlValue: "",
+  layout: localStorage.getItem("layout") || "layout1",
 };
 
 let initialState = initialStateSchema;
+const layout = localStorage.getItem("layout");
+if (layout) {
+  initialState.layout = layout;
+} else {
+  localStorage.setItem("layout", "layout1");
+}
 
 const editorReducer = (state = initialState, action) => {
   let newState;
@@ -40,6 +47,14 @@ const editorReducer = (state = initialState, action) => {
         cssValue: "",
         htmlValue: "",
       };
+      return newState;
+
+    case reduxConstants.CHANGE_EDITOR_LAYOUT:
+      newState = {
+        ...state,
+        layout: action.payload,
+      };
+      localStorage.setItem("layout", action.payload);
       return newState;
 
     default:

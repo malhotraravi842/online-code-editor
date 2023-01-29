@@ -1,0 +1,16 @@
+.dashboard {
+  width: 100%;
+  height: calc(100% - 74px);
+  &.layout1 {
+    display: block;
+  }
+
+  &.layout2 {
+    display: flex;
+  }
+
+  &.layout3 {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
-const WebView = ({ jsValue, cssValue, htmlValue }) => {
+const WebView = ({ jsValue, cssValue, htmlValue, layout }) => {
   const [srcDoc, setSrcDoc] = useState("");
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const WebView = ({ jsValue, cssValue, htmlValue }) => {
   }, [htmlValue, cssValue, jsValue]);
 
   return (
-    <div className="webview">
+    <div className={`webview ${layout}`}>
       <iframe srcDoc={srcDoc} title="Online Text Editor"></iframe>
     </div>
   );
@@ -32,6 +32,7 @@ const mapStateToProps = (state) => ({
   jsValue: state.editor.jsValue,
   cssValue: state.editor.cssValue,
   htmlValue: state.editor.htmlValue,
+  layout: state.editor.layout,
 });
 
 export default compose(connect(mapStateToProps))(WebView);

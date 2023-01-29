@@ -1,13 +1,19 @@
+import { connect } from "react-redux";
+import { compose } from "redux";
 import CodeEditior from "../components/CodeEditior";
 import WebView from "../components/WebView";
 
-const Dashboard = () => {
+const Dashboard = ({ layout }) => {
   return (
-    <div>
+    <div className={`dashboard ${layout}`}>
       <CodeEditior />
       <WebView />
     </div>
   );
 };
 
-export default Dashboard;
+const mapStateToProps = (state) => ({
+  layout: state.editor.layout,
+});
+
+export default compose(connect(mapStateToProps))(Dashboard);
