@@ -6,8 +6,13 @@
   &.layout2,
   &.layout3 {
     padding: 0;
-    height: 33.33%;
+    height: 100%;
     border-radius: 0;
+
+    &.editor--collapsed {
+      width: 100%;
+      height: 200px;
+    }
   }
 
   &:first-child {
