@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { changeLayout, refreshEditors } from "../../actions/editor";
 import { Button } from "../Button";
 import Dropdown from "../Dropdown";
+import { CodeLogo } from "../../assets";
 
 const Navbar = ({ refreshEditors, changeLayout }) => {
   const LAYOUT_OPTIONS = [
@@ -12,7 +13,10 @@ const Navbar = ({ refreshEditors, changeLayout }) => {
   ];
   return (
     <div className="navbar">
-      <div className="navbar__logo">CodeEditor</div>
+      <div className="navbar__logo">
+        <img src={CodeLogo} alt="code" />
+        CodeEditor
+      </div>
       <div className="navbar__btns">
         <Dropdown
           btnProps={{ label: "Change Layout" }}

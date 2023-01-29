@@ -2,6 +2,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { setJsValue, setCssValue, setHtmlValue } from "../../actions/editor";
 import Editior from "./Editior";
+import { constants } from "../../constants";
 
 const CodeEditior = ({
   htmlValue,
@@ -19,18 +20,21 @@ const CodeEditior = ({
         label="HTML"
         value={htmlValue}
         setValue={setHtmlValue}
+        logo={constants.HTML_LOGO_URL}
       />
       <Editior
         mode="sass"
         label="CSS"
         value={cssValue}
         setValue={setCssValue}
+        logo={constants.CSS_LOGO_URL}
       />
       <Editior
         mode="javascript"
         label="JS"
         value={jsValue}
         setValue={setJsValue}
+        logo={constants.JAVASCRIPT_LOGO_URL}
       />
     </div>
   );

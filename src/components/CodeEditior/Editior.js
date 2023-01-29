@@ -8,7 +8,7 @@ import { useState } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 
-const Editor = ({ mode, label, value, setValue, layout }) => {
+const Editor = ({ mode, label, value, setValue, layout, logo }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const options = {
     mode: mode,
@@ -27,7 +27,11 @@ const Editor = ({ mode, label, value, setValue, layout }) => {
       className={`editor ${isCollapsed ? "editor--collapsed" : ""} ${layout}`}
     >
       <div className="editor__navbar">
-        <div>{label}</div>
+        <div className="editor__navbar__logo">
+          <img src={logo} alt={label} />
+          {label}
+        </div>
+
         <button
           className="editor__navbar__btn"
           type="button"

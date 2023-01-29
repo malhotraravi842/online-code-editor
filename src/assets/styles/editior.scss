@@ -48,6 +48,17 @@
     border-radius: 0;
   }
 }
+.editor__navbar__logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5em;
+
+  img {
+    width: 25px;
+    margin-right: 5px;
+  }
+}
 .editor__navbar__btn {
   border: none;
   outline: none;
