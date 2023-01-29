@@ -5,7 +5,7 @@ const Button = styled.button`
   height: ${(props) => (props.height ? props.height : "44px")};
   text-decoration: none;
   outline: none;
-  padding: "0 40px";
+  padding: 0 40px;
   background-color: rgba(68, 72, 87);
   border-radius: 6px;
   color: #fff;
