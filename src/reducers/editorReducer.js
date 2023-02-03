@@ -1,9 +1,9 @@
 import { reduxConstants } from "../constants";
 
 const initialStateSchema = {
-  jsValue: "",
-  cssValue: "",
-  htmlValue: "",
+  jsValue: localStorage.getItem("jsValue") || "",
+  cssValue: localStorage.getItem("cssValue") || "",
+  htmlValue: localStorage.getItem("htmlValue") || "",
   layout: localStorage.getItem("layout") || "layout1",
 };
 
@@ -24,6 +24,7 @@ const editorReducer = (state = initialState, action) => {
         ...state,
         jsValue: action.payload,
       };
+      localStorage.setItem("jsValue", action.payload);
       return newState;
 
     case reduxConstants.SET_CSS_VALUE:
@@ -31,6 +32,7 @@ const editorReducer = (state = initialState, action) => {
         ...state,
         cssValue: action.payload,
       };
+      localStorage.setItem("cssValue", action.payload);
       return newState;
 
     case reduxConstants.SET_HTML_VALUE:
@@ -38,6 +40,7 @@ const editorReducer = (state = initialState, action) => {
         ...state,
         htmlValue: action.payload,
       };
+      localStorage.setItem("htmlValue", action.payload);
       return newState;
 
     case reduxConstants.REFRESH_EDITORS_VALUE:
@@ -47,6 +50,9 @@ const editorReducer = (state = initialState, action) => {
         cssValue: "",
         htmlValue: "",
       };
+      localStorage.removeItem("jsValue");
+      localStorage.removeItem("cssValue");
+      localStorage.removeItem("htmlValue");
       return newState;
 
     case reduxConstants.CHANGE_EDITOR_LAYOUT:

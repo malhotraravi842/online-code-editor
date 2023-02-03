@@ -1,4 +1,5 @@
 import { Controlled as CodeMirror } from "react-codemirror2";
+import "codemirror/addon/edit/closebrackets";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/mode/css/css";
 import "codemirror/mode/htmlmixed/htmlmixed";
@@ -15,7 +16,9 @@ const Editor = ({ mode, label, value, setValue, layout, logo }) => {
     theme: "material",
     lineNumbers: true,
     lineWrapping: true,
-    autofocus: true,
+    lint: true,
+    // autofocus: true,
+    autoCloseBrackets: true,
   };
 
   const onCollapse = () => {
@@ -43,6 +46,9 @@ const Editor = ({ mode, label, value, setValue, layout, logo }) => {
       <CodeMirror
         value={value}
         options={options}
+        autoCompletion={{
+          activateOnTyping: true,
+        }}
         onBeforeChange={(editor, data, value) => {
           setValue(value);
         }}
